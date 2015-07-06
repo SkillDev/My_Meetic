@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title><?php echo $_SESSION['login'];  ?></title>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="../style.css" type="text/css"/>
+	<meta name="description" content="My_meetic profil "/>
+</head>
+<body id="loged">
+	<header id="header">
+		<h1><a href="welcome.php" title="Page d'acceuil"><img src="../images/logo.jpg" alt="My_meetic"/></a></h1>
+		<div id="user">
+			<?php foreach ($profil_sql as $info) { ?>
+				<a class="" href="../php/profil.php" title="mon profil"><p class="user"> <?php echo ucfirst($info['username']); ?> </p></a>
+			<?php   } ?>
+			<a class="user" href="../php/allmsg.php" title="Messages">Messages</a>
+			<a class="user" href="../php/deconnexion.php" title="deconnection">Déconnexion</a>
+		</div>
+	</header>
+			
+
+	<?php foreach ($profil_sql as $info) { ?>
+	<div id="membres">
+
+
+		<ul id="memebre_profil">
+				<li><?php	echo "Prénom: " . ucfirst($info['prenom']);  ?></li>
+				<li><?php	echo "Nom: " . ucfirst($info['nom']); ?></li>
+				<?php $age_sql=$user->age($info['age']);  ?>
+				<li><?php echo "Age: " . $age_sql['age'] . " ans";?> </li>
+
+				<?php if($info['sexe'] == 2 || $info['sexe'] == 4){ ?>
+					<li> <?php echo 'Sexe: Femme'; ?> </li>
+				<?php  	} ?>
+
+				<?php if($info['sexe'] == 3 || $info['sexe'] == 5) { ?>
+					<li> <?php	echo 'Sexe: Homme'; ?> </li>
+				<?php } ?>
+
+				<?php if($info['sexe'] == 2){ ?>
+					<li>  <?php echo  "Je recherche: un homme";?> </li>
+				<?php } ?>
+
+				<?php if($info['sexe'] == 3) { ?>
+					<li> <?php  echo "Je recherche: une femme"; ?> </li>
+				<?php } ?>
+
+				<?php if($info['sexe'] == 4){ ?>
+					<li> <?php  echo "Je recherche: une femme"; ?> </li>
+				<?php } ?>
+
+				<?php if($info['sexe'] == 5){ ?>
+					<li> <?php echo "Je recherche: un homme"; ?> </li>
+				<?php } ?>
+				
+				<li><?php	echo "Pays: " . ucfirst($info['pays']); ?></li>
+				<li><?php	echo "Departement: " . ucfirst($info['departement']); ?></li>
+				<li><?php	echo "Ville: " . ucfirst($info['ville']); ?></li>				
+				<li><a href="update.php" title="modifier mes infos">Modifier mes info</a></li>
+
+
+			<?php }	?>
+
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>

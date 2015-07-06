@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>
+		<?php foreach ($membres_profil_requete_sql as $Nom) { 
+			echo "Profil de " .  ucfirst($Nom['username']); 
+		}?>
+	</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="../style.css" type="text/css"/>
+	<meta name="description" content="My_meetic"/>
+</head>
+<body id="loged">
+
+	<header id="header">
+		<h1><a href="welcome.php" title="Page d'acceuil"><img src="../images/logo.jpg" alt="My_meetic"/></a></h1>
+		<div id="user">
+			<?php foreach ($profil_sql as $info) { ?>
+			<a class="" href="../php/profil.php" title="mon profil"><p class="user"> <?php echo ucfirst($info['username']); ?> </p></a>
+			<?php   } ?>
+			<a class="user" href="../php/allmsg.php" title="Messages">Messages</a>
+			<a class="user" href="../php/deconnexion.php" title="deconnection">Déconnexion</a>
+		</div>
+	</header>
+
+	<div id='membres'>
+
+		<ul id="memebre_profil">
+			<?php foreach ($membres_profil_requete_sql as $membre_profil) { ?>
+				<li> <?php  echo ucfirst($membre_profil['username'])  ;?>   </li>
+				<li> <?php  echo "Prénom : " . ucfirst($membre_profil['prenom'])  ;?>   </li>
+				<li> <?php  echo "Nom : " . ucfirst($membre_profil['nom'])  ;?>   </li>
+
+				<?php $age_sql=$user->age($membre_profil['age']);  ?>
+				<li><?php echo "Age: " . $age_sql['age'] . " ans";?> </li>
+
+
+				<?php if($membre_profil['sexe'] == 2 || $membre_profil['sexe'] == 4){ ?>
+					<li> <?php echo 'Sexe: Femme'; ?> </li>
+				<?php  	} ?>
+
+				<?php if($membre_profil['sexe'] == 3 || $membre_profil['sexe'] == 5) { ?>
+					<li> <?php	echo 'Sexe: Homme'; ?> </li>
+				<?php } ?>
+
+				<li> <?php  echo "Pays : " . ucfirst($membre_profil['pays'])  ;?>   </li>
+				<li> <?php  echo "Departement : " . ucfirst($membre_profil['departement'])  ;?>   </li>
+				<li> <?php  echo "Ville : " . ucfirst($membre_profil['ville'])  ;?>   </li>
+
+
+				<?php if($membre_profil['sexe'] == 2){ ?>
+					<li>  <?php echo  "Recherche: un homme";?> </li>
+				<?php } ?>
+
+				<?php if($membre_profil['sexe'] == 3) { ?>
+					<li> <?php  echo "Recherche: une femme"; ?> </li>
+				<?php } ?>
+
+				<?php if($membre_profil['sexe'] == 4){ ?>
+					<li> <?php  echo "Recherche: une femme"; ?> </li>
+				<?php } ?>
+
+				<?php if($membre_profil['sexe'] == 5){ ?>
+					<li> <?php echo "Recherche: un homme"; ?> </li>
+				<?php } ?>
+
+				<li><a href="message.php?id=<?php echo $membre_profil['id_user'];?>" title="Chat avec <?php  echo ucfirst($membre_profil['prenom'])?>">Chat avec <?php  echo ucfirst($membre_profil['prenom'])?></a></li>
+
+			<?php } ?>
+
+
+		</ul>
+	</div>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

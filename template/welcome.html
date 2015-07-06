@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>My_meetic</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="../style.css" type="text/css"/>
+	<meta name="description" content="My_meetic "/>
+</head>
+<body id="loged">
+	<header id="header">
+		<h1><a href="welcome.php" title="Page d'acceuil"><img src="../images/logo.jpg" alt="My_meetic"/></a></h1>
+		<div id="user">
+			<?php foreach ($profil_sql as $info) { ?>
+			<a class="" href="../php/profil.php" title="mon profil"><p class="user"> <?php echo ucfirst($info['username']); ?> </p></a>
+			<?php   } ?>
+			<a class="user" href="../php/allmsg.php" title="Messages">Messages</a>
+			<a class="user" href="../php/deconnexion.php" title="deconnection">Déconnexion</a>
+		</div>
+
+	</header>
+	<form name="formu" method="get" action="welcome.php" id="recherche">
+		<div id="search">
+			<label>Rechercher (personne ou ville): </label><input name="search" type="text"/> 
+			
+		</div>
+
+		<!--_________________________Filtre Genre________ f___________________-->
+		
+
+		<select size="1" name="genre" id="gen">
+			<OPTION value="0">Genre</OPTION>			
+			<OPTION value="1">Homme</OPTION>
+			<OPTION value="2"> Femme </OPTION>
+			<OPTION value="3"> Autres</OPTION>
+
+		</select>
+
+		<!-- ________________Filtre Age___________________________-->
+		
+
+		<select size="1" name="age" id="age_fil">
+			<OPTION value="0">Choisir l'age :</OPTION>
+			<OPTION value="1">18/25</OPTION>
+			<OPTION value="2">25/35</OPTION>
+			<OPTION value="3">35/45</OPTION>
+			<OPTION value="4">45+</OPTION>
+
+		</select>
+		<input type="submit"   value="Filtrer">
+
+
+	</form>
+
+
+
+	<div id="cont">
+		<?php foreach ($membres_sql as $membres ) { ?>
+
+		<ul class="affiche">
+			<li><?php echo $membres['username']; ?> </li>
+			<li><?php echo $membres['prenom']; ?> </li>
+			<li><?php echo $membres['ville']; ?></li>
+			<?php $membres_sql=$user->age($membres['age']);  ?>
+				<li><?php echo $membres_sql['age'] . " ans";?> </li>
+			<?php if($membres['id_user'] != $_SESSION['id']) { ?>
+				<li><a href="membre_profil.php?id=<?php echo $membres['id_user'];?>" title="Voir le profil de <?php echo $membres['prenom']; ?>"> Afficher son profil  </a></li>
+			<?php } ?>
+				<?php if($membres['id_user'] == $_SESSION['id']) { ?>
+			<a href="profil.php" title="voir mon profil">Voir mon profil</a>
+			<?php } ?>
+		</ul>
+		<?php } ?>
+
+
+	</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+

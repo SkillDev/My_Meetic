@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>My_meetic</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="style.css" type="text/css"/>
+	<meta name="description" content="My_meetic "/>
+</head>
+<body>
+	<header>
+		<h1><a href="index.php" title="Page d'acceuil"><img src="images/logo.jpg" alt="My_meetic"/></a></h1>	
+	</header>
+
+
+
+
+</body>

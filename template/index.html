@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Rencontre avec My_Meetic : site de rencontres et chat pour célibataires</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="style.css" type="text/css"/>
+	<meta name="description" content="My_meetic "/>
+</head>
+<body id="main">
+
+
+	<header>
+		<h1><a href="index.php" title="Page d'acceuil"><img src="images/logo.jpg" alt="My_meetic"/></a></h1>	
+		
+		<form id="connexion" method="post" action="php/traitement.php">	
+			<label>Déja membre<input name="login" type="text" placeholder="email"></label><input name="pass" type="password" placeholder="mot de passe">
+			<input type="submit" name="sub" value="Connexion"/>
+		</form>
+
+	</header>
+	<h2>Inscrivez-vous gratuitement !</h2>
+	<form method="post"  action="#" id="inscription" onsubmit="check_info()">
+		<label>Je suis </label>
+
+		<select name="sexe" size="1" class="form-control">
+			<option value="1" id="default">Sélectionner</option>
+			<option value="2" >une femme qui recherche un homme</option>
+			<option value="3" >un homme qui recherche une femme</option>
+			<option value="4" >une femme qui recherche une femme</option>
+			<option value="5" >un homme qui recherche un homme</option>
+		</select>
+
+
+		<label>Ma date de naissance
+		<input type="text" name="age"  maxlength="10" placeholder="AAAA-MM-JJ" id="age"></label>
+	
+		<div id="hide">
+			<label>Mon pseudonyme
+			<input type="text" name="username" placeholder="Pseudonyme" class="form-control" id="username"/></label>
+			<label>Mon prénom
+			<input type="text" name="prenom" placeholder="Prenom" class="form-control" id="prenom"/></label>
+			<label>Mon nom
+			<input type="text" name="nom" placeholder="Nom" class="form-control" id="nom"/></label>
+			<label>Mon pays
+			<input type="text" name="pays" placeholder="Pays" class="form-control"></label>
+			<label>Mon departement
+			<input type="text" name="departement" placeholder="Departement" class="form-control"></label>
+			<label>Ma ville
+			<input type="text" name="ville" placeholder="Ville" class="form-control"></label>
+			<label>Mon code postal
+			<input type="text" name="cp" placeholder="Code postal" class="form-control"></label>
+			<label>Mon email
+			<input type="email" name="email" placeholder="Email" class="form-control"/></label>
+			<label>Mon Mot de passe <!-- FAIRE EN JS-->
+			<input type="password" name="password" placeholder="Mot de passe" class="form-control" /></label>
+			<label>Confirmation du mot de passe
+			<input type="password" name="confirm_password" placeholder="Confirmez mot de passe" class="form-control" /></label>
+		</div>
+		<input type="text"   value="Créer mon profil" class="btn btn-default sub"/>
+		<input type="submit" name="submit" value="Créer mon profil" class="btn btn-default submit"/>
+	</form>
+
+	<script type="text/javascript" src="js/jQuery.js"> </script>	
+	<script type="text/javascript" src="js/javascript.js"> </script>
+</body>
+</html>

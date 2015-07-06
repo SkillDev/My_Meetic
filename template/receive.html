@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Messages reçu</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="../style.css" type="text/css"/>
+	<meta name="description" content="My_meetic"/>
+</head>
+<body id="loged">
+
+	<header id="header">
+		<h1><a href="welcome.php" title="Page d'acceuil"><img src="../images/logo.jpg" alt="My_meetic"/></a></h1>
+		<div id="user">
+			<?php foreach ($profil_sql as $info) { ?>
+			<a class="" href="../php/profil.php" title="mon profil"><p class="user"> <?php echo ucfirst($info['username']); ?> </p></a>
+			<?php   } ?>
+			<a class="user" href="../php/allmsg.php" title="Messages">Messages</a>
+			<a class="user" href="../php/deconnexion.php" title="deconnection">Déconnexion</a>
+		</div>
+	</header>
+
+	<div id="messages">
+		<ul id='liste_send'>
+			<?php foreach ($recu_sql as $recu) { ?>
+				<li><a class="link" href="message.php?id=<?php echo $recu['id_from_user'];?>" title="Voir la conversation" > <?php echo $recu['username'] ;   ?>  <span class="date"> <?php echo "Le " . $recu['date'] . " à " . $recu['time'];?> </span> </a></li>
+
+			<?php } ?>
+		</ul>
+
+	</div>
+</body>
+</html>
+
+
+
+
+
+

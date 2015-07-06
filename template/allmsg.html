@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Mes messages </title>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/icon.png" />
+	<link rel="stylesheet" media="screen" href="dist/css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="../style.css" type="text/css"/>
+	<meta name="description" content="My_meetic"/>
+</head>
+<body id="loged">
+
+	<header id="header">
+		<h1><a href="welcome.php" title="Page d'acceuil"><img src="../images/logo.jpg" alt="My_meetic"/></a></h1>
+		<div id="user">
+			<?php foreach ($profil_sql as $info) { ?>
+			<a class="" href="../php/profil.php" title="mon profil"><p class="user"> <?php echo ucfirst($info['username']); ?> </p></a>
+			<?php   } ?>
+			<a class="user" href="../php/allmsg.php" title="Messages">Messages</a>
+			<a class="user" href="../php/deconnexion.php" title="deconnection">Déconnexion</a>
+		</div>
+	</header>
+
+<div id='membre'>
+	<ul>
+		<li><a class="link" href="send.php" title="voir mes messages envoyés">Messages envoyés</a></li>
+		<li><a class="link" href="receive.php" title="voir mes messages reçu">Messages reçu</a><li>
+	</ul>
+
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
